@@ -90,7 +90,7 @@ const imagenHeader = document.querySelector(".imagen-header");
 const cajaImagenes = document.querySelector(".caja-imagenes");
 
 // funcion pintar banner
-//     pintar la primera imagen del array
+//     pintar la primera imagen del array   
 //     arrayfotoscabecera[0]
 function randint(a, b) {
   return Math.floor(Math.random() * (b - a + 1)) + a;
@@ -111,9 +111,11 @@ pintarBanner();
 // const descripcionImagen = document.createElement("p");
 
 
-
 const pintarCards = () => {
+    const fragment = document.createDocumentFragment();
     arrayCards.forEach((elemento) => {
+        
+
         const article = document.createElement("article");
         const imagenCards01 = document.createElement("img");
         const tituloImagen = document.createElement("h2");
@@ -132,10 +134,10 @@ const pintarCards = () => {
         const cambioPcard = descripcionImagen.append(elemento.descripcion);
         const pAnidado = article.append(descripcionImagen);
 
-
-        const articleAniadido = cajaImagenes.append(article);
+        const div = fragment.append(article);
+        const articleAniadido = fragment.append(article);
     });
-    
+    cajaImagenes.append(fragment);
 }
 
 pintarCards();
